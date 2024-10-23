@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\HakAkses;
+use App\DataTables\HakAksesDataTable;
 use App\Http\Requests\StoreHakAksesRequest;
 use App\Http\Requests\UpdateHakAksesRequest;
+use App\Models\HakAkses;
 
 class HakAksesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(HakAksesDataTable $hakAksesDataTable)
     {
-        $data = HakAkses::all();
-        return view('hak-akses.index', compact('data'));
+        return $hakAksesDataTable->render('hak-akses.index');
     }
 
     /**

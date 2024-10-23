@@ -2,9 +2,8 @@
 
 namespace App\Policies;
 
-use App\HakAkses;
+use App\Models\HakAkses;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class HakAksesPolicy
 {

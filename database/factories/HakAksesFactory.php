@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\HakAkses>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\HakAkses>
  */
 class HakAksesFactory extends Factory
 {
