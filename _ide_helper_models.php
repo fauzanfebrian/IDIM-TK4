@@ -29,3 +29,16 @@ namespace App\Models{
 	class HakAkses extends \Eloquent {}
 }
 
+namespace App\Models{
+/**
+ * 
+ *
+ * @property-read \App\Models\HakAkses|null $hakAkses
+ * @method static \Database\Factories\PenggunaFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Pengguna newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Pengguna newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Pengguna query()
+ */
+	class Pengguna extends \Eloquent {}
+}
+

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreHakAksesRequest extends FormRequest
+class StorePenggunaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,12 @@ class StoreHakAksesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "NamaAkses" => "required|string",
-            "Keterangan" => "required|string",
+            "NamaPengguna" => "required|string",
+            "NamaDepan" => "required|string",
+            "Password" => "required|string",
+            "NoHp" => "required|string",
+            "Alamat" => "required|string",
+            "IdAkses" => "required|integer",
         ];
     }
 

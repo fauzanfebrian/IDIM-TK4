@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateHakAksesRequest extends FormRequest
@@ -25,5 +26,11 @@ class UpdateHakAksesRequest extends FormRequest
             "NamaAkses" => "required|string",
             "Keterangan" => "required|string",
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        toast("Data gagal divalidasi, silahkan periksa kembali", "error");
+        parent::failedValidation($validator);
     }
 }
