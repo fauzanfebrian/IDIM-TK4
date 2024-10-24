@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HakAksesController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PenggunaController;
@@ -26,3 +27,4 @@ Route::resource('hak-akses', HakAksesController::class);
 Route::resource('pengguna', PenggunaController::class);
 Route::resource('pelanggan', PelangganController::class);
 Route::resource('supplier', SupplierController::class);
+Route::resource('barang', BarangController::class);

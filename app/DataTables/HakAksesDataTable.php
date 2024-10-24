@@ -21,7 +21,7 @@ class HakAksesDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', 'hak-akses.action')
-            ->setRowId('id');
+            ->setRowId('IdAkses');
     }
 
     /**
@@ -38,16 +38,16 @@ class HakAksesDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('hakakses-table')
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('add'),
-                        Button::make('reload')
-                    ])
-                    ->columns($this->getColumns());
+            ->setTableId('hakakses-table')
+            ->minifiedAjax()
+            //->dom('Bfrtip')
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('add'),
+                Button::make('reload')
+            ])
+            ->columns($this->getColumns());
     }
 
     /**
@@ -60,10 +60,10 @@ class HakAksesDataTable extends DataTable
             Column::make('NamaAkses'),
             Column::make('Keterangan'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 

@@ -24,7 +24,7 @@ class PenggunaDataTable extends DataTable
             ->editColumn('NamaAkses', function (Pengguna $pengguna) {
                 return $pengguna->hakakses->NamaAkses;
             })
-            ->setRowId('id');
+            ->setRowId('IdPengguna');
     }
 
     /**

@@ -15,7 +15,7 @@ class SupplierController extends Controller
      */
     public function index(SupplierDataTable $supplierDataTable)
     {
-        confirmDelete("Hapus data Hak Akses?", "Hak Akses akan dihapus secara permanen, lanjutkan?");
+        confirmDelete("Hapus data Supplier?", "Supplier akan dihapus secara permanen, lanjutkan?");
         return $supplierDataTable->render('supplier.index');
     }
 
@@ -33,7 +33,7 @@ class SupplierController extends Controller
     public function store(StoreSupplierRequest $request)
     {
         Supplier::create($request->validated());
-        toast('Data Hak Akses berhasil ditambahkan', 'success');
+        toast('Data Supplier berhasil ditambahkan', 'success');
         return redirect()->route('supplier.index');
     }
 
@@ -66,7 +66,7 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::find($id);
         $supplier->update($request->validated());
-        toast('Data Hak Akses berhasil diubah', 'success');
+        toast('Data Supplier berhasil diubah', 'success');
         return redirect()->route('supplier.index');
     }
 
@@ -76,7 +76,7 @@ class SupplierController extends Controller
     public function destroy(int $id)
     {
         Supplier::find($id)->delete();
-        toast('Data Hak Akses berhasil dihapus', 'success');
+        toast('Data Supplier berhasil dihapus', 'success');
         return redirect()->route('supplier.index');
     }
 }

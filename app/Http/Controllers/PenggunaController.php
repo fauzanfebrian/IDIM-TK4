@@ -15,7 +15,7 @@ class PenggunaController extends Controller
      */
     public function index(PenggunaDataTable $penggunaDataTable)
     {
-        confirmDelete("Hapus data Hak Akses?", "Hak Akses akan dihapus secara permanen, lanjutkan?");
+        confirmDelete("Hapus data Pengguna?", "Pengguna akan dihapus secara permanen, lanjutkan?");
         return $penggunaDataTable->render('pengguna.index');
     }
 
@@ -36,7 +36,7 @@ class PenggunaController extends Controller
     public function store(StorePenggunaRequest $request)
     {
         Pengguna::create($request->validated());
-        toast('Data Hak Akses berhasil ditambahkan', 'success');
+        toast('Data Pengguna berhasil ditambahkan', 'success');
         return redirect()->route('pengguna.index');
     }
 
@@ -71,7 +71,7 @@ class PenggunaController extends Controller
     {
         $pengguna = Pengguna::find($id);
         $pengguna->update($request->validated());
-        toast('Data Hak Akses berhasil diubah', 'success');
+        toast('Data Pengguna berhasil diubah', 'success');
         return redirect()->route('pengguna.index');
     }
 
@@ -81,7 +81,7 @@ class PenggunaController extends Controller
     public function destroy(int $id)
     {
         Pengguna::find($id)->delete();
-        toast('Data Hak Akses berhasil dihapus', 'success');
+        toast('Data Pengguna berhasil dihapus', 'success');
         return redirect()->route('pengguna.index');
     }
 }

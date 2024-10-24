@@ -21,7 +21,7 @@ class SupplierDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', 'supplier.action')
-            ->setRowId('id');
+            ->setRowId('IdSupplier');
     }
 
     /**

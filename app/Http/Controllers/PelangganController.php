@@ -14,7 +14,7 @@ class PelangganController extends Controller
      */
     public function index(PelangganDataTable $pelangganDataTable)
     {
-        confirmDelete("Hapus data Hak Akses?", "Hak Akses akan dihapus secara permanen, lanjutkan?");
+        confirmDelete("Hapus data Pelanggan?", "Pelanggan akan dihapus secara permanen, lanjutkan?");
         return $pelangganDataTable->render('pelanggan.index');
     }
 
@@ -32,7 +32,7 @@ class PelangganController extends Controller
     public function store(StorePelangganRequest $request)
     {
         Pelanggan::create($request->validated());
-        toast('Data Hak Akses berhasil ditambahkan', 'success');
+        toast('Data Pelanggan berhasil ditambahkan', 'success');
         return redirect()->route('pelanggan.index');
     }
 
@@ -65,7 +65,7 @@ class PelangganController extends Controller
     {
         $pelanggan = Pelanggan::find($id);
         $pelanggan->update($request->validated());
-        toast('Data Hak Akses berhasil diubah', 'success');
+        toast('Data Pelanggan berhasil diubah', 'success');
         return redirect()->route('pelanggan.index');
     }
 
@@ -75,7 +75,7 @@ class PelangganController extends Controller
     public function destroy(int $id)
     {
         Pelanggan::find($id)->delete();
-        toast('Data Hak Akses berhasil dihapus', 'success');
+        toast('Data Pelanggan berhasil dihapus', 'success');
         return redirect()->route('pelanggan.index');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Pelanggan;
+use App\Models\Barang;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -10,7 +10,7 @@ use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
-class PelangganDataTable extends DataTable
+class BarangDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -20,14 +20,20 @@ class PelangganDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'pelanggan.action')
-            ->setRowId('IdPelanggan');
+            ->addColumn('action', 'barang.action')
+            ->editColumn('NamaPengguna', function (Barang $barang) {
+                return $barang->pengguna->NamaPengguna;
+            })
+            ->editColumn('NamaSupplier', function (Barang $barang) {
+                return $barang->supplier->NamaSupplier;
+            })
+            ->setRowId('IdBarang');
     }
 
     /**
      * Get the query source of dataTable.
      */
-    public function query(Pelanggan $model): QueryBuilder
+    public function query(Barang $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -56,11 +62,12 @@ class PelangganDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('IdPelanggan'),
-            Column::make('NamaPelanggan'),
-            Column::make('Email'),
-            Column::make('NoHp'),
-            Column::make('Alamat'),
+            Column::make('IdBarang'),
+            Column::make('NamaBarang'),
+            Column::make('Keterangan'),
+            Column::make('Satuan'),
+            Column::computed('NamaPengguna'),
+            Column::computed('NamaSupplier'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -74,6 +81,6 @@ class PelangganDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Pelanggan_' . date('YmdHis');
+        return 'Barang_' . date('YmdHis');
     }
 }
