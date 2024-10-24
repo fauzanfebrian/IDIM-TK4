@@ -8,8 +8,6 @@ use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class HakAksesDataTable extends DataTable
@@ -22,7 +20,7 @@ class HakAksesDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'hakakses.action')
+            ->addColumn('action', 'hak-akses.action')
             ->setRowId('id');
     }
 
@@ -41,19 +39,15 @@ class HakAksesDataTable extends DataTable
     {
         return $this->builder()
                     ->setTableId('hakakses-table')
-                    ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
+                        Button::make('add'),
                         Button::make('reload')
-                    ]);
+                    ])
+                    ->columns($this->getColumns());
     }
 
     /**

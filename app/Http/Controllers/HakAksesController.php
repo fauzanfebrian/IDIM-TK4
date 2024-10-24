@@ -14,6 +14,7 @@ class HakAksesController extends Controller
      */
     public function index(HakAksesDataTable $hakAksesDataTable)
     {
+        confirmDelete("Hapus data Hak Akses?", "Hak Akses akan dihapus secara permanen, lanjutkan?");
         return $hakAksesDataTable->render('hak-akses.index');
     }
 
@@ -31,24 +32,27 @@ class HakAksesController extends Controller
     public function store(StoreHakAksesRequest $request)
     {
         HakAkses::create($request->validated());
+        toast('Data Hak Akses berhasil ditambahkan', 'success');
         return redirect()->route('hak-akses.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(HakAkses $hakAkses)
+    public function show(int $id)
     {
-       return view('hak-akses.show', [
-        'data' => $hakAkses
-       ]);
+        $hakAkses = HakAkses::find($id);
+        return view('hak-akses.show', [
+            'data' => $hakAkses
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HakAkses $hakAkses)
+    public function edit(int $id)
     {
+        $hakAkses = HakAkses::find($id);
         return view('hak-akses.edit', [
             'data' => $hakAkses
         ]);
@@ -57,18 +61,21 @@ class HakAksesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHakAksesRequest $request, HakAkses $hakAkses)
+    public function update(UpdateHakAksesRequest $request, int $id)
     {
+        $hakAkses = HakAkses::find($id);
         $hakAkses->update($request->validated());
+        toast('Data Hak Akses berhasil diubah', 'success');
         return redirect()->route('hak-akses.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HakAkses $hakAkses)
+    public function destroy(int $id)
     {
-        $hakAkses->delete();
+        HakAkses::find($id)->delete();
+        toast('Data Hak Akses berhasil dihapus', 'success');
         return redirect()->route('hak-akses.index');
     }
 }
