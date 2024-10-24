@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePenggunaRequest extends FormRequest
+class UpdatePelangganRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,10 @@ class UpdatePenggunaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "NamaPengguna" => "required|string",
-            "NamaDepan" => "required|string",
-            "Password" => "optional|string",
+            "NamaPelanggan" => "required|string",
             "NoHp" => "required|string",
             "Alamat" => "required|string",
-            "IdAkses" => "required|integer",
+            "Email" => "required|string",
         ];
     }
 

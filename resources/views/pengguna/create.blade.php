@@ -1,11 +1,11 @@
 @extends('layout.app')
 
-@section('title', 'Tambah Hak Akses')
+@section('title', 'Tambah Pengguna')
 
 @section('content')
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header">Tambah Hak Akses</div>
+            <div class="card-header">Tambah Pengguna</div>
             <div class="card-body">
                 <form action="{{ route('pengguna.store') }}" method="POST">
                     @csrf

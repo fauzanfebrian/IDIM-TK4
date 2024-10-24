@@ -18,9 +18,4 @@ class Pengguna extends Model
     {
         return $this->belongsTo(HakAkses::class, 'IdAkses', "IdAkses");
     }
-
-//    public function getHakAksesAttribute()
-//    {
-//        return $this->belongsTo(HakAkses::class, 'IdAkses', "IdAkses");
-//    }
 }
