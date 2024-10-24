@@ -1,18 +1,19 @@
 @extends('layout.app')
 
-@section('title', 'Tambah Pelanggan')
+@section('title', 'Ubah Supplier')
 
 @section('content')
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header">Tambah Pelanggan</div>
+            <div class="card-header">Ubah Supplier</div>
             <div class="card-body">
-                <form action="{{ route('pelanggan.store') }}" method="POST">
+                <form action="{{ route('supplier.update', $data->IdSupplier) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" name="NamaPelanggan"
-                               value="{{ old('NamaPelanggan', isset($data->NamaPelanggan) ? $data->NamaPelanggan : null) }}">
+                        <input type="text" class="form-control" id="name" name="NamaSupplier"
+                               value="{{ old('NamaSupplier', isset($data->NamaSupplier) ? $data->NamaSupplier : null) }}">
 
                     </div>
                     <div class="mb-3">
@@ -26,11 +27,11 @@
                                value="{{ old('Alamat', isset($data->Alamat) ? $data->Alamat : null) }}">
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="name" name="Email" required
-                               value="{{ old('Email', isset($data->Email) ? $data->Email : null) }}">
+                        <label for="name" class="form-label">Keterangan</label>
+                        <input type="text" class="form-control" id="name" name="Keterangan" required
+                               value="{{ old('Keterangan', isset($data->Keterangan) ? $data->Keterangan : null) }}">
                     </div>
-
+                    
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\HakAksesController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,4 @@ Route::get('/', function () {
 Route::resource('hak-akses', HakAksesController::class);
 Route::resource('pengguna', PenggunaController::class);
 Route::resource('pelanggan', PelangganController::class);
+Route::resource('supplier', SupplierController::class);
