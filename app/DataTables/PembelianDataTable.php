@@ -64,7 +64,7 @@ class PembelianDataTable extends DataTable
         return [
             Column::make('IdPembelian'),
             Column::make('JumlahPembelian'),
-            Column::make('HargaBeli'),
+            Column::make('HargaBeli')->title('Harga Beli (Satuan)'),
             Column::computed('NamaBarang'),
             Column::computed('NamaPengguna'),
             Column::computed('action')

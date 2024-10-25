@@ -23,7 +23,7 @@
                                value="{{ old('JumlahPenjualan', isset($data->JumlahPenjualan) ? $data->JumlahPenjualan : null) }}">
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Harga Jual</label>
+                        <label for="name" class="form-label">Harga Jual (Satuan)</label>
                         <input type="number" class="form-control" id="name" name="HargaJual"
                                value="{{ old('HargaJual', isset($data->HargaJual) ? $data->HargaJual : null) }}">
                     </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HakAksesController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PembelianController;
@@ -20,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DashboardController::class, 'index']);
 
 
 Route::resource('hak-akses', HakAksesController::class);

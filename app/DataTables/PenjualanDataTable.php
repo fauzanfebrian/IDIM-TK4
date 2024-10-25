@@ -67,7 +67,7 @@ class PenjualanDataTable extends DataTable
         return [
             Column::make('IdPenjualan'),
             Column::make('JumlahPenjualan'),
-            Column::make('HargaJual'),
+            Column::make('HargaJual')->title('Harga Jual (Satuan)'),
             Column::computed('NamaBarang'),
             Column::computed('NamaPengguna'),
             Column::computed('NamaPelanggan'),
